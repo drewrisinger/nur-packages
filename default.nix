@@ -41,7 +41,7 @@ rec {
     });
 
     # Following have been PR'd to Nixpkgs, just not made it to release yet.
-    cirq = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/cirq { pythonProtobuf = pkgs.python3.pkgs.protobuf; inherit networkx; };
+    cirq = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/cirq { pythonProtobuf = pkgs.python3.pkgs.protobuf; };
     cvxpy = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/cvxpy { inherit ecos osqp scs; };
     ecos = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/ecos { };
     osqp = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/osqp { };
