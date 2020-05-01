@@ -48,6 +48,7 @@ rec {
     scs = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/scs { scs = lib-scs; };
 
     # Qiskit new packages or updates over what's in nixpkgs, in rough build order. All exist in nixpkgs, but only as of ~20.03
+    cplex = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/cplex { };
     dlx = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/dlx { };
     docloud = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/docloud { };
     docplex = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/docplex { inherit docloud; };
