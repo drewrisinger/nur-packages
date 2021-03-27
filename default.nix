@@ -25,7 +25,7 @@ rec {
   xcfun = pkgs.callPackage ./pkgs/libraries/xcfun { };
   muparserx = pkgs.callPackage ./pkgs/libraries/muparserx { };
   tuna = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/tuna { };
-  steamlink = pkgs.callPackage ./pkgs/games/steamlink { };
+  steamlink = if pkgs.lib.versionOlder pkgs.lib.version "20.09" then null else pkgs.callPackage ./pkgs/games/steamlink { };
 
   # Raspberry Pi Packages
   raspberryPi = pkgs.recurseIntoAttrs {
