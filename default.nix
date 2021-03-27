@@ -25,6 +25,7 @@ rec {
   xcfun = pkgs.callPackage ./pkgs/libraries/xcfun { };
   muparserx = pkgs.callPackage ./pkgs/libraries/muparserx { };
   tuna = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/tuna { };
+  steamlink = pkgs.callPackage ./pkgs/games/steamlink { };
 
   # Raspberry Pi Packages
   raspberryPi = pkgs.recurseIntoAttrs {
