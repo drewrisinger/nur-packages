@@ -12,7 +12,6 @@
 , libva
 , libvdpau
 , qt514
-, buildPackages
 }:
 
 # This derivation is only for x86_64-linux currently.
@@ -31,6 +30,7 @@ let
             sha256 = "0p9hp5kps3ilk4xbpfmraj6nh2szxsgwv2awqmdmwpa7ffbbapn2";
             stripLen = 1;
             excludes = [
+              # These don't apply cleanly, so excluded.
               # ARM-related patches, probably for Raspbian SteamLink
               "src/corelib/global/qfloat16.cpp"
               "src/gui/image/image.pri"
@@ -113,5 +113,6 @@ steamlinkPatchedQt514.mkDerivation rec {
     license = licenses.unfreeRedistributable;
     maintainers = with maintainers; [ drewrisinger ];
     platforms = [ "x86_64-linux" ];
+    broken = versionOlder trivial.version "20.08";
   };
 }
