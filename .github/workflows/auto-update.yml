@@ -12,7 +12,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2.3.4
       with:
-        ref: master
+        ref: ci-auto-update
     - name: Install nix
       uses: cachix/install-nix-action@v13
       with:
