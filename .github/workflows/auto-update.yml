@@ -4,6 +4,7 @@ on:
     # auto-update every day at 3:50 am
     - cron:  '50 3 * * *'
   workflow_dispatch:
+  push:
 jobs:
   auto-update:
     runs-on: ubuntu-latest
