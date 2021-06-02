@@ -1,0 +1,32 @@
+name: "Auto-update packages"
+on:
+  schedule:
+    # auto-update every day at 3:50 am
+    - cron:  '50 3 * * *'
+  workflow_dispatch:
+jobs:
+  auto-update:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2.3.4
+      with:
+        ref: master
+    - name: Install nix
+      uses: cachix/install-nix-action@v13
+      with:
+        nix_path: "nixpkgs=channel:nixos-unstable"
+    - name: Show nixpkgs version
+      run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
+    - name: List NUR package attributes
+      run: |
+        nix-shell --run 'nix eval --json "(import ./ci.nix { }).allAttrPaths" | jq . > nurAttrs.json'
+        cat nurAttrs.json
+    - name: Auto-update
+      env:
+        XDG_RUNTIME_DIR: $HOME
+      run: nix-shell ./update-shell.nix --run "jq '.. | values | unique | strings' nurAttrs.json | xargs -L1 nix-update --build --commit"
+    - name: Submit auto-update PR
+      uses: peter-evans/create-pull-request@v3
+      # with:
+      #   token: ${{ secrets.PAT }}
