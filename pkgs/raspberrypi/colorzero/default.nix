@@ -6,11 +6,11 @@
 
 buildPythonPackage rec {
   pname = "colorzero";
-  version = "1.1";
+  version = "2.0";
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "acba47119b5d8555680d3cda9afe6ccc5481385ccc3c00084dd973f7aa184599";
+    sha256 = "sha256-59WlwmzQ3DexZOvvxgnziN4k+Fk7ZZGR4S2F+PnV61g=";
   };
 
   propagatedBuildInputs = [];
