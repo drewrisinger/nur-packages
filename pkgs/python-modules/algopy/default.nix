@@ -1,6 +1,6 @@
 { lib
 , buildPythonPackage
-, fetchFromGitHub
+, fetchPypi
 , mpmath
 , numpy
 , scipy
@@ -13,11 +13,9 @@ buildPythonPackage rec {
   pname = "algopy";
   version = "0.5.7";
 
-  src = fetchFromGitHub {
-    owner = "b45ch1";
-    repo = pname;
-    rev = "1e2430f803289bbaed6bbdff6c28f98d7767835c"; # untagged, commit lists it as 0.5.7
-    sha256 = "1b0mm0y9rqcjzx6jbkg9zz1x0m3wba25jq28ncwnn9myq0algyk8";
+  src = fetchPypi {
+    inherit pname version;
+    sha256 = "6955f676fce3858fa3585cb7f3f7e1796cb93377d24016419b6699291584b7df";
   };
 
   propagatedBuildInputs = [
