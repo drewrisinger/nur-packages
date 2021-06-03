@@ -44,7 +44,7 @@ rec {
     pyscf = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/pyscf { inherit libcint xcfun; };
     pygsti = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/pygsti { inherit cvxpy; };
     pygsti-cirq = pygsti.overridePythonAttrs (oldAttrs: {
-      version = "unstable-2020-04-20";
+      version = "unstable-0.9.9.3";
       src = pkgs.fetchFromGitHub {
         owner = "pyGSTio";
         repo = "pygsti";
