@@ -1,7 +1,9 @@
 { lib
 , buildPythonPackage
+, pythonOlder
 , fetchFromGitHub
 # , gpib-ctypes # in v0.4+
+, importlib-metadata
 , pyusb
 , pyvisa
 , setuptools_scm
@@ -27,7 +29,7 @@ buildPythonPackage rec {
     pyusb
     pyvisa
     toml
-  ];
+  ] ++ lib.optionals (pythonOlder "3.8") [ importlib-metadata ];
 
   preBuild = ''
     export SETUPTOOLS_SCM_PRETEND_VERSION=${version}
