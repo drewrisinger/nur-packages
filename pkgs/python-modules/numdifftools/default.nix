@@ -14,13 +14,13 @@
 
 buildPythonPackage rec {
   pname = "numdifftools";
-  version = "0.9.39";
+  version = "0.9.40";
 
   src = fetchFromGitHub {
     owner = "pbrod";
     repo = pname;
     rev = "v${version}";
-    sha256 = "0yp967y2if6ng44azkkvyvf77jj0asm83a3i53wrpqp69ha4qq6w";
+    sha256 = "sha256-YLi9cNHcZ/PlhrhvYOMfRTOt4kinQcfxvqInT8/0Qpg=";
   };
 
   buildInputs = [ pytestrunner ];
