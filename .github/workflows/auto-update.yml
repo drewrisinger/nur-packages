@@ -4,6 +4,9 @@ on:
     # auto-update every day at 3:50 am
     - cron:  '50 3 * * *'
   workflow_dispatch:
+  push:
+    branch:
+      - ci-auto-update
 jobs:
   auto-update:
     runs-on: ubuntu-latest
@@ -11,7 +14,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2.3.4
       with:
-        ref: master
+        ref: ci-auto-update
         # For triggering CI builds on generated PR. See https://github.com/peter-evans/create-pull-request/blob/main/docs/concepts-guidelines.md#push-using-ssh-deploy-keys
         ssh-key: ${{ secrets.SSH_DEPLOY_PRIVATE_KEY }}
     - name: Install nix
