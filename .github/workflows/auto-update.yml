@@ -26,7 +26,7 @@ jobs:
     - name: Auto-update
       env:
         XDG_RUNTIME_DIR: $HOME
-      run: nix-shell ./update-shell.nix --run "jq '.. | values | unique | strings' nurAttrs.json | xargs -L1 nix-update --build --commit"
+      run: nix-shell ./update-shell.nix --run "jq '.. | values | strings' nurAttrs.json | xargs -L1 nix-update --build --commit"
     - name: Submit auto-update PR
       uses: peter-evans/create-pull-request@v3
       # with:
