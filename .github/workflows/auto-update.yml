@@ -25,7 +25,7 @@ jobs:
         cat nurAttrs.json
     - name: Auto-update
       env:
-        XDG_RUNTIME_DIR: $HOME
+        XDG_RUNTIME_DIR: ${{ github.workspace }}
       run: nix-shell ./update-shell.nix --run "jq '.. | values | strings' nurAttrs.json | xargs -L1 nix-update --build --commit"
     - name: Submit auto-update PR
       uses: peter-evans/create-pull-request@v3
