@@ -6,13 +6,13 @@
 
 buildPythonPackage rec {
   pname = "pyvisa";
-  version = "1.10.1";
+  version = "1.11.3";
 
   src = fetchFromGitHub {
     owner = "pyvisa";
     repo = "pyvisa";
     rev = version;
-    sha256 = "10cnkap8xj7r0s9lj5p04mxgrj3rfqysllrz973f8hy2sz66gmbk";
+    sha256 = "sha256-Qe7W1zPI1aedLDnhkLTDPTa/lsNnCGik5Hu+jLn+meA=";
   };
 
   checkInputs = [ pytestCheckHook ];
