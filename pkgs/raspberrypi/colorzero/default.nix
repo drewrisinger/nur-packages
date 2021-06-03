@@ -1,6 +1,6 @@
 { buildPythonPackage
 , lib
-, fetchFromGitHub
+, fetchPypi
 , pytestCheckHook
 }:
 
@@ -8,11 +8,9 @@ buildPythonPackage rec {
   pname = "colorzero";
   version = "1.1";
 
-  src = fetchFromGitHub {
-    owner = "waveform80";
-    repo = "colorzero";
-    rev = "release-${version}";
-    sha256 = "1nm3zxnzpib74fis6mdc8lb8pvl6275620bc2ixwd1zna9qg77qi";
+  src = fetchPypi {
+    inherit pname version;
+    sha256 = "acba47119b5d8555680d3cda9afe6ccc5481385ccc3c00084dd973f7aa184599";
   };
 
   propagatedBuildInputs = [];
