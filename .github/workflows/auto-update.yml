@@ -35,7 +35,8 @@ jobs:
         GIT_AUTHOR_EMAIL: drewrisinger@users.noreply.github.com
         GIT_COMMITTER_NAME: Drew Risinger (bot)
         GIT_COMMITTER_EMAIL: drewrisinger@users.noreply.github.com
-      run: nix-shell ./update-shell.nix --run "jq '.. | values | strings' nurAttrs.json | xargs -L1 nix-update --build --commit"
+      timeout-minutes: 30
+      run: nix-shell ./update-shell.nix --run "jq '.. | values | strings' nurAttrs.json | xargs -L1 nix-update --commit"
     - name: Submit auto-update PR
       uses: peter-evans/create-pull-request@v3
       # with:
