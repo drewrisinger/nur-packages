@@ -36,6 +36,7 @@ jobs:
         GIT_COMMITTER_NAME: Drew Risinger (bot)
         GIT_COMMITTER_EMAIL: drewrisinger@users.noreply.github.com
       timeout-minutes: 30
+      continue-on-error: true # want the PR to still submit even if some updates error
       run: nix-shell ./update-shell.nix --run "jq '.. | values | strings' nurAttrs.json | xargs -L1 nix-update --commit"
     - name: Submit auto-update PR
       uses: peter-evans/create-pull-request@v3
