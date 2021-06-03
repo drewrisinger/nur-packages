@@ -8,13 +8,13 @@
 
 buildPythonPackage rec {
   pname = "pyvisa-py";
-  version = "0.3.1";
+  version = "0.5.1";
 
   src = fetchFromGitHub {
     owner = "pyvisa";
     repo = "pyvisa-py";
     rev = version;
-    sha256 = "1b5jn8zaxz3fs8vphdvakx19xp4659ihnmndf0zyc6f51bdx46d9";
+    sha256 = "sha256-V1BS+BvHVI8h/rynLnOHvQdIR6RwQrNa2p2S6GQug98=";
   };
 
   propagatedBuildInputs = [
