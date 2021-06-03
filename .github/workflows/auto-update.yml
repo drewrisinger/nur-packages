@@ -19,6 +19,11 @@ jobs:
         nix_path: "nixpkgs=channel:nixos-unstable"
     - name: Show nixpkgs version
       run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
+    - name: Setup cachix
+      uses: cachix/cachix-action@v10
+      with:
+        name: drewrisinger
+        signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
     - name: List NUR package attributes
       run: |
         nix-shell ./update-shell.nix --run 'nix eval --json "(import ./ci.nix { }).allAttrPaths" | jq . > nurAttrs.json'
