@@ -43,3 +43,4 @@ jobs:
       with:
         title: "[Auto-Update]: Bump packages to latest version"
         delete-branch: true
+        reviewers: drewrisinger
