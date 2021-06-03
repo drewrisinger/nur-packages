@@ -8,7 +8,7 @@
 
 buildPythonApplication rec {
   pname = "tuna";
-  version = "0.4.7";
+  version = "0.5.6";
   format = "pyproject";
 
   disabled = pythonOlder "3.6";
@@ -16,7 +16,7 @@ buildPythonApplication rec {
   # Use PyPi b/c some Javascript files aren't included in GitHub checkout
   src = fetchPypi {
     inherit pname version;
-    sha256 = "7a4eb545bde7eb5cd43a7d1233e55c15bfe3101a0fff3da5cde1ff68b2191bcb";
+    sha256 = "sha256-H/i0Jr5Lw4nzXk0j/u3Yht3Z/35FeXBL7/SSswQodTM=";
   };
 
   dontUseSetuptoolsCheck = true;
