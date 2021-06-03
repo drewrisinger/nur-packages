@@ -20,14 +20,14 @@
 
 buildPythonPackage rec {
   pname = "pyscf";
-  version = "1.7.6";
+  version = "2.0.0a";
 
   # must download from GitHub to get the Cmake & C source files
   src = fetchFromGitHub {
     owner = "pyscf";
     repo = pname;
     rev = "v${version}";
-    sha256 = "1plicf3df732mcwzsinfbmlzwwi40sh2cxy621v7fny2hphh14dl";
+    sha256 = "sha256-P/K8brBWsJt4MemZdwUlH4GHFlZ80QkqVBiYx33+St0=";
   };
 
   disabled = isPy27;
