@@ -5,6 +5,8 @@ on:
     - cron:  '50 3 * * *'
   workflow_dispatch:
   push:
+    branches:
+      - ci-auto-update
 jobs:
   auto-update:
     runs-on: ubuntu-latest
