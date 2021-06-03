@@ -26,6 +26,8 @@ jobs:
     - name: Auto-update
       env:
         XDG_RUNTIME_DIR: ${{ github.workspace }}
+        GIT_AUTHOR_NAME: Drew Risinger (bot)
+        GIT_AUTHOR_EMAIL: drewrisinger@users.noreply.github.com
       run: nix-shell ./update-shell.nix --run "jq '.. | values | strings' nurAttrs.json | xargs -L1 nix-update --build --commit"
     - name: Submit auto-update PR
       uses: peter-evans/create-pull-request@v3
