@@ -20,7 +20,7 @@
 
 buildPythonPackage rec {
   pname = "pyquil";
-  version = "2.28.2";
+  version = "3.0.0";
 
   disabled = pythonOlder "3.6";
 
@@ -28,7 +28,7 @@ buildPythonPackage rec {
     owner = "rigetti";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sha256-ETnfXubyw6yWwrIEfmogxa/FXaWOzNe5iefsUGiO6So=";
+    sha256 = "sha256-XeSwxmqonj/Z/6zsQNasropnl8BH1FvqVn5v86m+4AA=";
   };
 
   propagatedBuildInputs = [
