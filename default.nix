@@ -20,11 +20,9 @@ rec {
   lib-scs = pkgs.callPackage ./pkgs/libraries/scs { };
 
   # New/unstable packages below
-  libcint = pkgs.callPackage ./pkgs/libraries/libcint { };
   muparserx = pkgs.callPackage ./pkgs/libraries/muparserx { };
   tuna = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/tuna { };
   libtweedledum = pkgs.callPackage ./pkgs/libraries/tweedledum { };
-  xcfun = pkgs.callPackage ./pkgs/libraries/xcfun { };
 
   # Raspberry Pi Packages
   raspberryPi = pkgs.recurseIntoAttrs {
@@ -40,7 +38,6 @@ rec {
     autoray = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/autoray { };
     # nose-timer = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/nose-timer { };
     oitg = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/oitg { };
-    pyscf = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/pyscf { inherit libcint xcfun; };
     pygsti = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/pygsti { inherit cvxpy; };
     pygsti-cirq = pygsti.overridePythonAttrs (oldAttrs: {
       version = "unstable-2020-04-20";
@@ -106,7 +103,7 @@ rec {
       inherit qiskit-aer qiskit-terra;
     };
     qiskit-aqua = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/qiskit-aqua {
-      inherit cvxpy pyscf qiskit-aer qiskit-ignis qiskit-terra;
+      inherit cvxpy qiskit-aer qiskit-ignis qiskit-terra;
     };
     qiskit-ibmq-provider = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/qiskit-ibmq-provider {
       inherit qiskit-terra qiskit-aer;
@@ -129,7 +126,7 @@ rec {
     qiskit-finance = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/qiskit-finance { inherit qiskit-optimization qiskit-terra qiskit-aer; };
     qiskit-optimization = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/qiskit-optimization { inherit qiskit-terra qiskit-aer; };
     qiskit-machine-learning = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/qiskit-machine-learning { inherit qiskit-terra qiskit-aer; };
-    qiskit-nature = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/qiskit-nature { inherit qiskit-terra retworkx pyscf; };
+    qiskit-nature = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/qiskit-nature { inherit qiskit-terra retworkx; };
     qiskit-ode = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/qiskit-ode { inherit qiskit-terra; };
 
     # Raspberry Pi Packages
