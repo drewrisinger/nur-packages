@@ -24,6 +24,7 @@ jobs:
     - name: Initial Job Evaluation
       run: |
         nix-shell ./update-shell.nix --run 'nix-eval-jobs --option restrict-eval true default.nix > evaluations.json
+        cat evaluations.json
     - name: List NUR package attributes
       run: |
         nix-shell ./update-shell.nix --run 'nix eval --json "(import ./ci.nix { }).allAttrPaths" | jq . > nurAttrs.json'
