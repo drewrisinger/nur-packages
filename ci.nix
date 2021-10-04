@@ -52,7 +52,8 @@ let
       if (isBuildable value && !(isBool value)) then
         concatStringsSep "." path
       else
-        null) (pkgs.lib.filterAttrs (n: v: !isReserved n) nurAttrs);
+        null)
+    (pkgs.lib.filterAttrs (n: v: !isReserved n) nurAttrs);
 in
 rec {
   buildPkgs = filter isBuildable nurPkgs;
