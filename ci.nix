@@ -16,8 +16,8 @@ let
   isReserved = n: n == "lib" || n == "overlays" || n == "modules" || n == "pkgs";
   isDerivation = p: isAttrs p && p ? type && p.type == "derivation";
   evaluatedPackages = builtins.map builtins.fromJSON (pkgs.lib.splitString "\n" (pkgs.lib.fileContents ./evaluations.json));
-  
-  canEvaluate = p: elem: ( elem ? "attr" && (pkgs.lib.hasInfix p.pname elem.attr) && (! (elem ? "error")));
+
+  canEvaluate = p: elem: ( (elem ? "attr" && p ? "pname") && (pkgs.lib.hasInfix p.pname elem.attr) && (! (elem ? "error")));
   isBuildable = p: any (canEvaluate p) evaluatedPackages;
   isCacheable = p: !(p.preferLocalBuild or false);
   shouldRecurseForDerivations = p: isAttrs p && p.recurseForDerivations or false;
