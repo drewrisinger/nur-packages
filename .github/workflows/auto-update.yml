@@ -27,7 +27,7 @@ jobs:
         cat evaluations.json
     - name: List NUR package attributes
       run: |
-        nix-shell ./update-shell.nix --run 'nix eval --json "(import ./ci.nix { }).allAttrPaths" | jq . > nurAttrs.json'
+        nix-shell ./update-shell.nix --run 'nix eval --json "(import ./ci.nix { }).allAttrPaths" > nurAttrs.json'
         cat nurAttrs.json
     - name: Auto-update
       env:
