@@ -23,7 +23,7 @@ jobs:
       run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
     - name: Initial Job Evaluation
       run: |
-        nix-shell ./update-shell.nix --run 'nix-eval-jobs --option restrict-eval true default.nix > evaluations.json
+        nix-shell ./update-shell.nix --run 'nix-eval-jobs --option restrict-eval true default.nix > evaluations.json'
         cat evaluations.json
     - name: List NUR package attributes
       run: |
