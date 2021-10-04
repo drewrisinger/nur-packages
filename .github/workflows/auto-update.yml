@@ -20,6 +20,9 @@ jobs:
         nix_path: "nixpkgs=channel:nixos-unstable"
     - name: Show nixpkgs version
       run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
+    - name: Initial Job Evaluation
+      run: |
+        nix-shell ./update-shell.nix --run 'nix-eval-jobs default.nix -I nixpkgs=channel:nixos-21.05' > evaluations.json
     - name: List NUR package attributes
       run: |
         nix-shell ./update-shell.nix --run 'nix eval --json "(import ./ci.nix { }).allAttrPaths" | jq . > nurAttrs.json'
