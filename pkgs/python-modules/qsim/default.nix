@@ -12,7 +12,7 @@
 , withCuda ? false
 , cudatoolkit
 , withCuQuantum ? false
-, cuquantum ? null
+, cuquantum
 , pytestCheckHook
 }:
 

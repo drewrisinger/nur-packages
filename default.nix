@@ -85,10 +85,10 @@ rec {
       cirq-rigetti
       cirq-web
     ;
-    qsim = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/qsim { inherit cirq-core; };
+    qsim = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/qsim { inherit cirq-core cuquantum; };
 
     # qsimWithCuda = qsim.override { withCuda = true; };
-    # qsimWithCuQuantum = qsim.override { withCuQuantum = true; };
+    # qsimWithCuQuantum = qsim.override { withCuQuantum = true; inherit cuquantum; };
     cvxpy = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/cvxpy { inherit ecos osqp scs; };
     ecos = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/ecos { };
     qdldl = pkgs.python3Packages.callPackage ./pkgs/python-modules/qdldl { };
