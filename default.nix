@@ -87,8 +87,8 @@ rec {
     ;
     qsim = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/qsim { inherit cirq-core; };
 
-    qsimWithCuda = qsim.override { withCuda = true; };
-    qsimWithCuQuantum = qsim.override { withCuQuantum = true; };
+    # qsimWithCuda = qsim.override { withCuda = true; };
+    # qsimWithCuQuantum = qsim.override { withCuQuantum = true; };
     cvxpy = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/cvxpy { inherit ecos osqp scs; };
     ecos = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/ecos { };
     qdldl = pkgs.python3Packages.callPackage ./pkgs/python-modules/qdldl { };
