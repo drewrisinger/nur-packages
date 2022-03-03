@@ -84,6 +84,8 @@ rec {
       cirq-rigetti
       cirq-web
     ;
+    qsim = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/qsim { inherit cirq-core; };
+
     cvxpy = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/cvxpy { inherit ecos osqp scs; };
     ecos = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/ecos { };
     qdldl = pkgs.python3Packages.callPackage ./pkgs/python-modules/qdldl { };

@@ -1,0 +1,183 @@
+diff --git a/pybind_interface/avx2/CMakeLists.txt b/pybind_interface/avx2/CMakeLists.txt
+index 4382de9..2997950 100644
+--- a/pybind_interface/avx2/CMakeLists.txt
++++ b/pybind_interface/avx2/CMakeLists.txt
+@@ -13,16 +13,6 @@ if(APPLE)
+     link_directories("/usr/local/lib" "/usr/local/opt/llvm/lib")
+ endif()
+ 
+-include(FetchContent)
+-
+-FetchContent_Declare(
+-  pybind11
+-  GIT_REPOSITORY https://github.com/pybind/pybind11
+-  GIT_TAG v2.2.4
+-)
+-FetchContent_GetProperties(pybind11)
+-if(NOT pybind11_POPULATED)
+-  FetchContent_Populate(pybind11)
+-  add_subdirectory(${pybind11_SOURCE_DIR} ${pybind11_BINARY_DIR})
+-endif()
++find_package(Python COMPONENTS Interpreter Development)
++find_package(pybind11 CONFIG REQUIRED)
+ pybind11_add_module(qsim_avx2 pybind_main_avx2.cpp)
+diff --git a/pybind_interface/avx512/CMakeLists.txt b/pybind_interface/avx512/CMakeLists.txt
+index 705d39d..f6047d0 100644
+--- a/pybind_interface/avx512/CMakeLists.txt
++++ b/pybind_interface/avx512/CMakeLists.txt
+@@ -14,16 +14,6 @@ if(APPLE)
+     link_directories("/usr/local/lib" "/usr/local/opt/llvm/lib")
+ endif()
+ 
+-include(FetchContent)
+-
+-FetchContent_Declare(
+-  pybind11
+-  GIT_REPOSITORY https://github.com/pybind/pybind11
+-  GIT_TAG v2.2.4
+-)
+-FetchContent_GetProperties(pybind11)
+-if(NOT pybind11_POPULATED)
+-  FetchContent_Populate(pybind11)
+-  add_subdirectory(${pybind11_SOURCE_DIR} ${pybind11_BINARY_DIR})
+-endif()
++find_package(Python COMPONENTS Interpreter Development)
++find_package(pybind11 CONFIG REQUIRED)
+ pybind11_add_module(qsim_avx512 pybind_main_avx512.cpp)
+diff --git a/pybind_interface/basic/CMakeLists.txt b/pybind_interface/basic/CMakeLists.txt
+index 9380f02..2125c7b 100644
+--- a/pybind_interface/basic/CMakeLists.txt
++++ b/pybind_interface/basic/CMakeLists.txt
+@@ -14,16 +14,6 @@ if(APPLE)
+     link_directories("/usr/local/lib" "/usr/local/opt/llvm/lib")
+ endif()
+ 
+-include(FetchContent)
+-
+-FetchContent_Declare(
+-  pybind11
+-  GIT_REPOSITORY https://github.com/pybind/pybind11
+-  GIT_TAG v2.2.4
+-)
+-FetchContent_GetProperties(pybind11)
+-if(NOT pybind11_POPULATED)
+-  FetchContent_Populate(pybind11)
+-  add_subdirectory(${pybind11_SOURCE_DIR} ${pybind11_BINARY_DIR})
+-endif()
++find_package(Python COMPONENTS Interpreter Development)
++find_package(pybind11 CONFIG REQUIRED)
+ pybind11_add_module(qsim_basic pybind_main_basic.cpp)
+diff --git a/pybind_interface/cuda/CMakeLists.txt b/pybind_interface/cuda/CMakeLists.txt
+index d7f5b83..8a8d464 100644
+--- a/pybind_interface/cuda/CMakeLists.txt
++++ b/pybind_interface/cuda/CMakeLists.txt
+@@ -14,19 +14,8 @@ if(APPLE)
+     link_directories("/usr/local/lib" "/usr/local/opt/llvm/lib")
+ endif()
+ 
+-include(FetchContent)
+-
+-FetchContent_Declare(
+-  pybind11
+-  GIT_REPOSITORY https://github.com/pybind/pybind11
+-  GIT_TAG v2.2.4
+-)
+-FetchContent_GetProperties(pybind11)
+-if(NOT pybind11_POPULATED)
+-  FetchContent_Populate(pybind11)
+-  add_subdirectory(${pybind11_SOURCE_DIR} ${pybind11_BINARY_DIR})
+-endif()
+-
++find_package(Python COMPONENTS Interpreter Development)
++find_package(pybind11 CONFIG REQUIRED)
+ find_package(PythonLibs 3.6 REQUIRED)
+ find_package(CUDA REQUIRED)
+ 
+diff --git a/pybind_interface/custatevec/CMakeLists.txt b/pybind_interface/custatevec/CMakeLists.txt
+index 912f531..6857c2c 100644
+--- a/pybind_interface/custatevec/CMakeLists.txt
++++ b/pybind_interface/custatevec/CMakeLists.txt
+@@ -29,21 +29,12 @@ endif()
+ 
+ include(FetchContent)
+ 
+-FetchContent_Declare(
+-  pybind11
+-  GIT_REPOSITORY https://github.com/pybind/pybind11
+-  GIT_TAG v2.2.4
+-)
+-FetchContent_GetProperties(pybind11)
+-if(NOT pybind11_POPULATED)
+-  FetchContent_Populate(pybind11)
+-  add_subdirectory(${pybind11_SOURCE_DIR} ${pybind11_BINARY_DIR})
+-endif()
+-
++find_package(Python COMPONENTS Interpreter Development)
++find_package(pybind11 CONFIG REQUIRED)
+ find_package(PythonLibs 3.6 REQUIRED)
+ find_package(CUDA REQUIRED)
+ 
+-include_directories(${PYTHON_INCLUDE_DIRS} ${pybind11_SOURCE_DIR}/include)
++include_directories(${pybind11_INCLUDE_DIRS})
+ 
+ include_directories($ENV{CUQUANTUM_DIR}/include)
+ link_directories($ENV{CUQUANTUM_DIR}/lib $ENV{CUQUANTUM_DIR}/lib64)
+diff --git a/pybind_interface/decide/CMakeLists.txt b/pybind_interface/decide/CMakeLists.txt
+index 643ca9a..deb05e3 100644
+--- a/pybind_interface/decide/CMakeLists.txt
++++ b/pybind_interface/decide/CMakeLists.txt
+@@ -21,16 +21,8 @@ endif()
+ 
+ include(FetchContent)
+ 
+-FetchContent_Declare(
+-  pybind11
+-  GIT_REPOSITORY https://github.com/pybind/pybind11
+-  GIT_TAG v2.2.4
+-)
+-FetchContent_GetProperties(pybind11)
+-if(NOT pybind11_POPULATED)
+-  FetchContent_Populate(pybind11)
+-  add_subdirectory(${pybind11_SOURCE_DIR} ${pybind11_BINARY_DIR})
+-endif()
++find_package(Python COMPONENTS Interpreter Development)
++find_package(pybind11 CONFIG REQUIRED)
+ 
+ if(has_nvcc STREQUAL "")
+   pybind11_add_module(qsim_decide decide.cpp)
+diff --git a/pybind_interface/sse/CMakeLists.txt b/pybind_interface/sse/CMakeLists.txt
+index 6fa7201..e257df9 100644
+--- a/pybind_interface/sse/CMakeLists.txt
++++ b/pybind_interface/sse/CMakeLists.txt
+@@ -16,14 +16,6 @@ endif()
+ 
+ include(FetchContent)
+ 
+-FetchContent_Declare(
+-  pybind11
+-  GIT_REPOSITORY https://github.com/pybind/pybind11
+-  GIT_TAG v2.2.4
+-)
+-FetchContent_GetProperties(pybind11)
+-if(NOT pybind11_POPULATED)
+-  FetchContent_Populate(pybind11)
+-  add_subdirectory(${pybind11_SOURCE_DIR} ${pybind11_BINARY_DIR})
+-endif()
++find_package(Python COMPONENTS Interpreter Development)
++find_package(pybind11 CONFIG REQUIRED)
+ pybind11_add_module(qsim_sse pybind_main_sse.cpp)
+diff --git a/requirements.txt b/requirements.txt
+index 01d20cd..04f17b3 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -5,9 +5,5 @@ numpy~=1.16
+ typing_extensions
+ absl-py
+ 
+-# Build and test requirements
+-
+-black==20.8b1
+-flynt~=0.60
++# Build requirements
+ pybind11
+-pytest
