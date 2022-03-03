@@ -1,6 +1,7 @@
 { lib
 , buildPythonPackage
 , fetchFromGitHub
+, fetchpatch
 , pythonOlder
 , absl-py
 , cmake
@@ -28,7 +29,17 @@ buildPythonPackage rec {
     sha256 = "sha256-2/Qgq0WdmUm0FU2b+BCu7WHP+KuxCLSZIQgz6+3Ropo=";
   };
   patches = [
-    ./0001-disable-pybind-fetch.patch
+    # following 2 patches from https://github.com/quantumlib/qsim/pull/512/
+    (fetchpatch {
+      name = "remove-test-requirements-from-install.patch";
+      url = "https://github.com/quantumlib/qsim/commit/55d59b3f51b882ee1d72f969868c0391143ae281.patch";
+      sha256 = "sha256-an/pjWyPvs4Us3bFIzRBChMWoQ6PFZ4RtnNS+SBdKVc=";
+    })
+    (fetchpatch {
+      name = "use-system-pybind11-library.patch";
+      url = "https://github.com/quantumlib/qsim/commit/6dbc82f3140271364d4e5b9172b41d6cf6a568ae.patch";
+      sha256 = "sha256-BX8CJs5tpOVfBtPvl4IVISH2kFj1SNJ1qnGJgYJyfLo=";
+    })
   ];
 
   nativeBuildInputs = [ cmake pybind11 ];
