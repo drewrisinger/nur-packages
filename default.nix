@@ -20,6 +20,7 @@ rec {
   lib-scs = pkgs.callPackage ./pkgs/libraries/scs { };
 
   # New/unstable packages below
+  cuquantum = pkgs.callPackage ./pkgs/libraries/cuquantum { };
   libcint = pkgs.callPackage ./pkgs/libraries/libcint { };
   muparserx = pkgs.callPackage ./pkgs/libraries/muparserx { };
   tuna = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/tuna { };
@@ -85,6 +86,10 @@ rec {
       cirq-rigetti
       cirq-web
     ;
+    qsim = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/qsim { inherit cirq-core cuquantum; };
+
+    # qsimWithCuda = qsim.override { withCuda = true; };
+    # qsimWithCuQuantum = qsim.override { withCuQuantum = true; inherit cuquantum; };
     cvxpy = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/cvxpy { inherit ecos osqp scs; };
     ecos = pkgs.python3.pkgs.callPackage ./pkgs/python-modules/ecos { };
     qdldl = pkgs.python3Packages.callPackage ./pkgs/python-modules/qdldl { };
