@@ -2,6 +2,7 @@
 , pythonOlder
 , buildPythonPackage
 , fetchFromGitHub
+, poetry-core
 , antlr4-python3-runtime
 , lark-parser ? null  # <= nixos-21.11
 , lark ? null # > nixos-21.11
@@ -35,15 +36,12 @@ buildPythonPackage rec {
     rev = "v${version}";
     sha256 = "sha256-ejfzxCf2NucK/hfzswHu3h4DPPZQY8vkMAQ51XDRWKU=";
   };
+
   postPatch = ''
-    # remove numpy hard-pinning, not compatible with nixpkgs 20.09
-    substituteInPlace setup.py \
-      --replace ",>=1.20.0" "" \
-      --replace "lark==0.*,>=0.11.1" "${if lark != null then "lark" else "lark-parser"}" \
-      --replace "scipy==1.*,>=1.6.1" "scipy" \
-      --replace "networkx==2.*,>=2.5.0" "networkx" \
-      --replace "importlib-metadata==3.*,>=3.7.3" "importlib-metadata"
+    substituteInPlace pyproject.toml --replace "^" ">="
   '';
+
+  nativeBuildInputs = [ poetry-core ];
 
   propagatedBuildInputs = [
     antlr4-python3-runtime
