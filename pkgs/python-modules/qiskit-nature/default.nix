@@ -10,6 +10,7 @@
 , retworkx
 , scikitlearn
 , scipy
+, typing-extensions
 , withPyscf ? false
 , pyscf
   # Check Inputs
@@ -21,7 +22,7 @@
 
 buildPythonPackage rec {
   pname = "qiskit-nature";
-  version = "0.3.2";
+  version = "0.4.1";
 
   disabled = pythonOlder "3.6";
 
@@ -29,7 +30,7 @@ buildPythonPackage rec {
     owner = "Qiskit";
     repo = pname;
     rev = version;
-    sha256 = "sha256-BXUVRZ8X3OJiRexNXZsnvp+Yh8ARNYohYH49/IYFYM0=";
+    sha256 = "sha256-PFZwCCpjiDoIaUBx1AyYD5F+Jc/ZOcNadRQuQe54F14=";
   };
 
   propagatedBuildInputs = [
@@ -40,6 +41,7 @@ buildPythonPackage rec {
     retworkx
     scikitlearn
     scipy
+    typing-extensions
   ] ++ lib.optional withPyscf pyscf;
 
   checkInputs = [
