@@ -14,14 +14,14 @@
 
 buildPythonPackage rec {
   pname = "pyvisa-py";
-  version = "0.5.3";
+  version = "0.8.1";
   format = "pyproject";
 
   src = fetchFromGitHub {
     owner = "pyvisa";
     repo = "pyvisa-py";
     rev = version;
-    sha256 = "sha256-37GptqqBSIFOpm6SpS61ZZ9C4iU5AiOduVq255mTRNo=";
+    sha256 = "sha256-fXLT3W48HQ744LkwZn784KKmUE8gxDCR+lkcL9xX45g=";
   };
 
   patches = [
