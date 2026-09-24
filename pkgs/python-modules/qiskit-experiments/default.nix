@@ -17,7 +17,7 @@
 
 buildPythonPackage rec {
   pname = "qiskit-experiments";
-  version = "0.3.1";
+  version = "0.14.2";
 
   disabled = pythonOlder "3.7";
 
@@ -25,7 +25,7 @@ buildPythonPackage rec {
     owner = "Qiskit";
     repo = pname;
     rev = version;
-    sha256 = "sha256-rGMVxlqwnA18Sq3O1LUZoC36oj+FnuaZLdjyTyANZh0=";
+    sha256 = "sha256-oxXHLQIs3ZgMbDiENSoxvz3k3W+L7pODoR812aBcbSo=";
   };
 
   propagatedBuildInputs = [

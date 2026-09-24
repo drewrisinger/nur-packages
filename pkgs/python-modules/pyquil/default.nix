@@ -25,7 +25,7 @@
 
 buildPythonPackage rec {
   pname = "pyquil";
-  version = "3.1.0";
+  version = "4.21.0";
   format = "pyproject";
 
   disabled = pythonOlder "3.6";
@@ -34,7 +34,7 @@ buildPythonPackage rec {
     owner = "rigetti";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sha256-ejfzxCf2NucK/hfzswHu3h4DPPZQY8vkMAQ51XDRWKU=";
+    sha256 = "sha256-JhLeyxNu6d0d5M5//4asD60LBAJiK4IktDkbPM/uXKw=";
   };
   postPatch = ''
     # remove hard-pinning

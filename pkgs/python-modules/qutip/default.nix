@@ -13,7 +13,7 @@
 
 buildPythonPackage rec {
   pname = "qutip";
-  version = "4.7.0";
+  version = "5.3.1";
   format = "pyproject";
   disabled = pythonOlder "3.5";
 
@@ -21,7 +21,7 @@ buildPythonPackage rec {
     owner = "qutip";
     repo = "qutip";
     rev = "v${version}";
-    sha256 = "sha256-11K7Tl7PE98nM2vGsa+OKIJYu0Wmv8dT700PDt9RRVk=";
+    sha256 = "sha256-MegIeAI1euGRV0MymhDp6/ncyvFHoIz0td68hZzhNGs=";
   };
 
   propagatedBuildInputs = [
