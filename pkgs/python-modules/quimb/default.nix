@@ -19,7 +19,7 @@
 
 buildPythonPackage rec {
   pname = "quimb";
-  version = "1.3.0";
+  version = "1.15.0";
 
   disabled = pythonOlder "3.6";
 
