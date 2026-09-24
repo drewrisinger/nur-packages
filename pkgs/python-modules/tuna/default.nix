@@ -9,7 +9,7 @@
 
 buildPythonApplication rec {
   pname = "tuna";
-  version = "0.5.11";
+  version = "0.5.15";
   format = "pyproject";
 
   disabled = pythonOlder "3.6";
@@ -17,7 +17,7 @@ buildPythonApplication rec {
   # Use Pypi vs GitHub b/c the required JS dependencies require semi-complicated node install
   src = fetchPypi {
     inherit pname version;
-    sha256 = "sha256-1H8+OegK+WHI3wFqyX0WQ8PGC160USmdoKtf5BHYhmw=";
+    sha256 = "sha256-AQmrECN07PXUf5UCZ7UWtgCcPPSOjKujsshZ7T9vuZY=";
   };
 
   installCheckPhase = ''
