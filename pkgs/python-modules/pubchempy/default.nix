@@ -7,13 +7,13 @@
 
 buildPythonPackage rec {
   pname = "pubchempy";
-  version = "1.0.4";
+  version = "1.0.5";
 
   src = fetchFromGitHub {
     owner = "mcs07";
     repo = "pubchempy";
     rev = "v${version}";
-    sha256 = "0rmrhsvnqv11s8p01bbi0mfvzxyasjda5zbb0cpwgjlk49vavgxf";
+    sha256 = "sha256-/gMvn222LXs2iRGo3f64oU8oQLWCd3gPmyFghryzmIE=";
   };
 
   doCheck = false;  # ALL tests require network access
