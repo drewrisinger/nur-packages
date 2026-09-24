@@ -10,7 +10,7 @@
 
 buildPythonPackage rec {
   pname = "pyvisa";
-  version = "1.12.0";
+  version = "1.16.2";
   format = "pyproject";
   disabled = pythonOlder "3.7";
 
@@ -18,7 +18,7 @@ buildPythonPackage rec {
     owner = "pyvisa";
     repo = pname;
     rev = version;
-    sha256 = "sha256-2khTfj0RRna9YDPOs5kQHHhkeMwv3kTtGyDBYnu+Yhw=";
+    sha256 = "sha256-wxWva02nKkuFjralzVIrVTXfDHEeBYihckUcj8p44/k=";
   };
   patches = [
     # setuptools < 61.0.0 (i.e. the one on nixos-21.05) can't process setuptools info in pyproject.toml vs setup.cfg. This reverts the upgrade
