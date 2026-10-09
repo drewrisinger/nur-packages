@@ -17,13 +17,13 @@
 
 buildPythonPackage rec {
   pname = "dynaconf";
-  version = "3.1.8";
+  version = "3.2.6";
 
   src = fetchFromGitHub {
     owner = "rochacbruno";
     repo = pname;
     rev = version;
-    sha256 = "sha256-JyexYi4btLMKxtbI4ioD+9VRg/4ormPFHoVVhDMy09s=";
+    sha256 = "sha256-MHZziJdfCNKOltYIN3A/TazsK9sCYtb/GiMds4T5lIo=";
   };
 
   propagatedBuildInputs = [
