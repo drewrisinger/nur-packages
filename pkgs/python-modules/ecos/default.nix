@@ -11,7 +11,7 @@
 
 buildPythonPackage rec {
   pname = "ecos";
-  version = "2.0.10";
+  version = "2.0.14";
 
   disabled = pythonOlder "3.6";
 
@@ -19,7 +19,7 @@ buildPythonPackage rec {
     owner = "embotech";
     repo = "ecos-python";
     rev = "v${version}";
-    sha256 = "sha256-TPxrTyVZ1KXgPoDbZZqXT5+NEIEndg9qepujqFQwK+Q=";
+    sha256 = "sha256-nfu1FicWr233r+VHxkQf1vqh2y4DGymJRmik8RJYJkA=";
     fetchSubmodules = true;
   };
 
