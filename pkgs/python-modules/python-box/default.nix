@@ -11,7 +11,7 @@
 
 buildPythonPackage rec {
   pname = "python-box";
-  version = "6.0.2";
+  version = "7.4.1";
 
   disabled = pythonOlder "3.6";
 
@@ -19,7 +19,7 @@ buildPythonPackage rec {
     owner = "cdgriffith";
     repo = "box";
     rev = version;
-    sha256 = "sha256-IE2qyRzvrOTymwga+hCwE785sAVTqQtcN1DL/uADpbQ=";
+    sha256 = "sha256-tzkTiuH9zBUFYXda6iv4Ohh72WBVcW/BykMS5W7BPPo=";
   };
 
   propagatedBuildInputs = [
