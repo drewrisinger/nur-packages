@@ -12,11 +12,11 @@
 
 buildPythonPackage rec {
   pname = "pytest-profiling";
-  version = "1.7.0";
+  version = "1.8.1";
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "93938f147662225d2b8bd5af89587b979652426a8a6ffd7e73ec4a23e24b7f29";
+    sha256 = "sha256-Pxcfpp1cgvqaq3bWar1fWdppE1w31q5b91V/GxVMsI0=";
   };
 
   nativeBuildInputs = [ setuptools-git ];
