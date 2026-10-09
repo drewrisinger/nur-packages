@@ -13,7 +13,7 @@
 
 buildPythonPackage rec {
   pname = "autoray";
-  version = "0.3.1";
+  version = "0.11.0";
 
   disabled = pythonOlder "3.5";
 
