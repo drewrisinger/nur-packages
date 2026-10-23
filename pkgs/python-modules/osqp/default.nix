@@ -16,14 +16,14 @@
 
 buildPythonPackage rec {
   pname = "osqp";
-  version = "0.6.2.post4";
+  version = "1.1.3";
   format = "pyproject";
 
   src = fetchFromGitHub {
     owner = "oxfordcontrol";
     repo = "osqp-python";
     rev = "v${version}";
-    sha256 = "sha256-anYHR2i6xZo/BZb0o2r+4UitgcjgjRsVd9bXoYUwF6Q=";
+    sha256 = "sha256-xK7ljAwVwsmj84s5yxeU64nwT6N/Ec58aYjiUUOr4Ig=";
     fetchSubmodules = true;
   };
 
