@@ -11,7 +11,7 @@
 
 buildPythonPackage rec {
   pname = "algopy";
-  version = "0.5.7";
+  version = "0.7.2";
 
   src = fetchPypi {
     inherit pname version;
