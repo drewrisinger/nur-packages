@@ -18,14 +18,14 @@
 
 buildPythonPackage rec {
   pname = "retworkx";
-  version = "0.11.0";
+  version = "0.18.1";
   format = "pyproject";
 
   src = fetchFromGitHub {
     owner = "Qiskit";
     repo = "retworkx";
     rev = version;
-    sha256 = "sha256-o3XPMTaiFH5cBtyqtW650wiDBElLvCmERr2XwwdPO1c=";
+    sha256 = "sha256-LdlATxcxLQPze33h8aIxuULj1Cs+3nEMcPJxBXh94oI=";
   };
 
   cargoDeps = rustPlatform.fetchCargoTarball {

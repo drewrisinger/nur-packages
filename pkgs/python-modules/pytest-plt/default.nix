@@ -10,7 +10,7 @@
 
 buildPythonPackage rec {
   pname = "pytest-plt";
-  version = "1.1.0";
+  version = "1.1.1";
   format = "pyproject";
 
   disabled = pythonOlder "3.5";
@@ -19,7 +19,7 @@ buildPythonPackage rec {
     owner = "nengo";
     repo = pname;
     rev = "v${version}";
-    sha256 = "0mw9zhxxpcc50q3cd72si6g97v0bpssig68z4blxix548c76q54d";
+    sha256 = "sha256-BbnxOHClADOpRfrI/6p2XEnrQrAzCmPfcrn5ECfQ7lA=";
   };
 
   propagatedBuildInputs = [
